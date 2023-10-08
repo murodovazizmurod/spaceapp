@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <style>
+      div.contain {
+        max-width: 800px;
+        margin: 2rem auto;
+      }
+      * {
+        color: #fafafa;
+        font-family: "ABeeZee", sans-serif;
+      }
+      .container {
+        width: 80%;
+        max-width: 600px;
+        margin: 50px auto;
+      }
+
+      button.accordion {
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        text-align: left;
+        padding: 15px 20px;
+        font-size: 18px;
+        color: #fafafa;
+        cursor: pointer;
+        transition: background-color 0.2s linear;
+      }
+
+      button.accordion:after {
+        font-family: FontAwesome;
+        content: "\f150";
+        font-family: "fontawesome";
+        font-size: 18px;
+        float: right;
+      }
+
+      button.accordion.is-open:after {
+        content: "\f151";
+      }
+
+      button.accordion:hover,
+      button.accordion.is-open {
+        background-color: transparent;
+      }
+
+      .accordion-content {
+        background-color: transparent;
+        border-bottom: 1px solid whitesmoke;
+        padding: 0 20px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-in-out;
+      }
+    </style>
+    <script
+      type="module"
+      src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"
+    ></script>
+  </head>
+  <body>
+    <div id="bg"></div>
+    <div class="contain">
+      <h1>Welcome to Mars</h1>
+      <br /><br /><br />
+      <div class="sketchfab-embed-wrapper">
+        <iframe
+          title="Mars"
+          frameborder="0"
+          allowfullscreen
+          mozallowfullscreen="true"
+          webkitallowfullscreen="true"
+          allow="autoplay; fullscreen; xr-spatial-tracking"
+          xr-spatial-tracking
+          execution-while-out-of-viewport
+          execution-while-not-rendered
+          web-share
+          width="800"
+          height="600"
+          src="https://sketchfab.com/models/2b46962637ee4311af8f0d1d0709fbb2/embed?autostart=1&camera=0&annotations_visible=1&preload=1&transparent=1&ui_infos=0&ui_stop=0&ui_watermark_link=0&ui_watermark=0&ui_help=0&ui_settings=0"
+        >
+        </iframe>
+      </div>
+      <br /><br />
+      <div class="container">
+        <h1>Tourist spots:</h1>
+
+        <button class="accordion">Olympus Mons</button>
+        <div class="accordion-content">
+          <ul>
+            <li>
+              Olympus Mons is the largest volcano in the solar system, with an
+              elevation of about 22 kilometers (13.6 miles) above the Martian
+              surface.
+            </li>
+            <li>
+              It is a shield volcano, characterized by its broad, gently sloping
+              profile.
+            </li>
+            <li>
+              Located in the Tharsis volcanic plateau, Olympus Mons has a
+              massive summit caldera with collapse pits and fissures.
+            </li>
+            <li>
+              The volcano's relatively young age suggests relatively recent
+              volcanic activity.
+            </li>
+          </ul>
+        </div>
+
+        <button class="accordion">Arabia</button>
+        <div class="accordion-content">
+          <p>
+            <ul>
+                <li>Arabia Terra is a large upland region on Mars characterized by its heavily cratered surface.</li>
+                <li>It is one of the oldest terrains on the planet, with some features dating back billions of years.</li>
+                <li>The region contains a variety of geological features, including highland plateaus, valleys, and ancient river channels</li>
+            </ul>
+          </p>
+        </div>
+
+        <button class="accordion">Syrtis Major</button>
+        <div class="accordion-content">
+          <p>
+            <ul>
+                <li>Syrtis Major is a dark, lowland region on Mars known for its volcanic plains</li>
+                <li>It is one of the most prominent dark albedo features on the planet and has been associated with ancient volcanic activity</li>
+                <li>The region contains both large shield volcanoes and extensive lava flows</li>
+            </ul>
+          </p>
+        </div>
+        <button class="accordion">Elysium</button>
+        <div class="accordion-content">
+          <p>
+            <ul>
+                <li>Elysium is a volcanic region on Mars with a group of three large shield volcanoes, including Elysium Mons</li>
+                <li>The largest volcano in this group, Elysium Mons, is about 12 kilometers (7.5 miles) high</li>
+                <li>The region is relatively young in geological terms and has evidence of recent volcanic activity</li>
+            </ul>
+          </p>
+        </div>
+        <button class="accordion">Arcadia</button>
+        <div class="accordion-content">
+          <p>
+            <ul>
+                <li>Arcadia Planitia is a plain in the northern lowlands of Mars, known for its relatively flat terrain</li>
+                <li>It contains a number of impact craters and is characterized by its diverse geological features</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+    </div>
+    <script>
+      const accordionBtns = document.querySelectorAll(".accordion");
+
+      accordionBtns.forEach((accordion) => {
+        accordion.onclick = function () {
+          this.classList.toggle("is-open");
+
+          let content = this.nextElementSibling;
+          console.log(content);
+
+          if (content.style.maxHeight) {
+            //this is if the accordion is open
+            content.style.maxHeight = null;
+          } else {
+            //if the accordion is currently closed
+            content.style.maxHeight = content.scrollHeight + "px";
+            console.log(content.style.maxHeight);
+          }
+        };
+      });
+    </script>
+  </body>
+</html>

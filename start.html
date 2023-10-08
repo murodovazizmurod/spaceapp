@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <title>Solar System</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      * {
+        color: #fafafa;
+        font-family: "ABeeZee", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #222;
+      }
+      .planet-card {
+        display: inline-block;
+        margin: 10px;
+        width: 150px;
+        height: 200px;
+        /* background-color: #333; */
+        border-radius: 10px;
+        text-align: center;
+        overflow: hidden;
+        position: relative;
+        transition: transform 0.3s, filter 0.3s;
+      }
+      .planet-card:hover {
+        transform: scale(1.2);
+      }
+      .planet-image {
+        width: 120px;
+        height: 120px;
+        margin-top: 20px;
+        border-radius: 50%;
+        transition: transform 2s linear;
+      }
+      .planet-name {
+        margin-top: 10px;
+        font-size: 16px;
+      }
+      .planet-card:hover .planet-image {
+        animation: rotate 2s linear infinite;
+      }
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="bg"></div>
+    <center style="position: absolute; top:80px;">
+        <h1>Choose the destination:</h1>
+    </center>
+    <div class="content">
+      <a class="planet-card" href="#">
+
+        <img class="planet-image" src="planets/mercury.png" alt="Mercury" />
+        <div class="planet-name">Mercury</div>
+      </a>
+      <a class="planet-card" href="#">
+        <img class="planet-image" src="planets/venus.png" alt="Venus" />
+        <div class="planet-name">Venus</div>
+      </a>
+      <a class="planet-card" href="mars.html">
+        <img class="planet-image" src="planets/mars.png" alt="Mars" />
+        <div class="planet-name">Mars</div>
+      </a>
+      <a class="planet-card" href="#">
+        <img class="planet-image" src="planets/jupiter.png" alt="Jupiter" />
+        <div class="planet-name">Jupiter</div>
+      </a>
+      <a class="planet-card" href="#">
+        <img class="planet-image" src="planets/saturn.png" alt="Saturn" />
+        <div class="planet-name">Saturn</div>
+      </a>
+      <a class="planet-card" href="#">
+        <img class="planet-image" src="planets/uranus.png" alt="Uranus" />
+        <div class="planet-name">Uranus</div>
+      </a>
+      <a class="planet-card" href="#">
+        <img class="planet-image" src="planets/neptune.png" alt="Neptune" />
+        <div class="planet-name">Neptune</div>
+      </a>
+    </div>
+    <div class="map" style="position: absolute;bottom: 100px;">
+      <a href="https://codepen.io/juliangarnier/full/krNqZO">View Solar System</a>
+    </div>
+  </body>
+</html>
